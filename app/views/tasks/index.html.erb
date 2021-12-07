@@ -1,0 +1,17 @@
+<h1>Task list</h1>
+
+<div class="form-check border-bottom pb-3">
+  <% @tasks.each do |task| %>
+  <div class="d-flex flex-row align-items-center">
+  <input type="checkbox" class="form-check-input" disabled <%='checked' if task.completed %>>
+  <label class="mx-3"><%= link_to task.title, task_path(task) %></label>
+  <%= link_to "Delete", task_path(task), method: :delete, class:"btn btn-primary m-2 p-1" %>
+  </div>
+  <br>
+  <% end %>
+</div>
+
+<div class="d-flex flex-row">
+  <div><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+  <div><%= link_to "Add a task", tasks_new_path %></div>
+</div>

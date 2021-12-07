@@ -1,0 +1,15 @@
+<div class="d-flex flex-row justify-content-between align-items-center mb-2">
+  <div><h1><%= @task.title %></h1></div>
+  <div><%= link_to "Edit", edit_task_path(@task), class: ["btn", "btn-secondary"] %></div>
+</div>
+
+<div class="card">
+  <div class="card-body alert-secondary">
+    <p class="m-0"><%= @task.details %></p>
+  </div>
+</div>
+<div class="form-group my-2">
+<input type="checkbox" disabled <%='checked' if @task.completed %>>
+<label><%=@task.completed ? 'This task is completed' : 'This task is not completed yet'%></label>
+</div>
+<br><%= link_to "Task List", tasks_path %>
